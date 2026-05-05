@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Portfolio | Maria Perezolova</title>
     <style>
-        /* ========== ПОДКЛЮЧАЕМ ШРИФТЫ ========== */
         @import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Love+Ya+Like+A+Sister&family=Life+Savers:wght@400;700;800&display=swap');
 
         * {
@@ -21,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
         .portfolio-container {
             position: relative;
             width: 100%;
@@ -31,418 +29,278 @@
             min-height: 100vh;
         }
 
-        /* ========== LOGO ========== */
+        /* ========== ШАПКА ========== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 44px 90px 0 90px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 30;
+        }
+
         .logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 44px;
             font-family: 'Love Ya Like A Sister', cursive;
             font-size: 96px;
-            text-align: center;
             color: #FFFA67;
-            z-index: 20;
             white-space: nowrap;
         }
 
         /* ========== НАВИГАЦИЯ ========== */
-        .nav-home, .nav-portfolio, .nav-about, .nav-contacts {
-            position: absolute;
-            width: 220px;
-            height: 70px;
-            top: 268px;
-            background: #616FD0;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            z-index: 10;
-        }
-        
-        .nav-home { left: 50%; transform: translateX(-50%) translateX(-340px); background: #616FD0; }
-        .nav-portfolio { left: 50%; transform: translateX(-50%) translateX(-100px); background: #24318E; }
-        .nav-about { left: 50%; transform: translateX(-50%) translateX(140px); background: #616FD0; }
-        .nav-contacts { left: 50%; transform: translateX(-50%) translateX(380px); background: #616FD0; }
-
-        .nav-home:hover, .nav-portfolio:hover, .nav-about:hover, .nav-contacts:hover {
-            background: #7a88e8;
-        }
-        .nav-home:hover { transform: translateX(-50%) translateX(-340px) scale(1.02); }
-        .nav-portfolio:hover { transform: translateX(-50%) translateX(-100px) scale(1.02); }
-        .nav-about:hover { transform: translateX(-50%) translateX(140px) scale(1.02); }
-        .nav-contacts:hover { transform: translateX(-50%) translateX(380px) scale(1.02); }
-
-        .nav-home a, .nav-portfolio a, .nav-about a, .nav-contacts a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .nav-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 30px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(3.5px);
+            margin-top: 20px;
+        }
+
+        .nav-links a {
             font-family: 'Lakki Reddy', cursive;
             font-size: 36px;
             color: #FFFA67;
             text-decoration: none;
+            padding: 8px 25px;
+            border-radius: 30px;
+            background: #616FD0;
+            transition: transform 0.2s, background 0.2s;
+            display: inline-block;
         }
 
-        .nav-blur {
-            position: absolute;
-            width: 1100px;
-            height: 84px;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 163px;
-            background: rgba(0,0,0,0.3);
-            filter: blur(3.5px);
-            border-radius: 20px;
-            z-index: 5;
+        .nav-links a:nth-child(2) { background: #24318E; }
+        .nav-links a:hover {
+            transform: scale(1.05);
+            background: #7a88e8;
         }
+
+        /* ========== СОЦСЕТИ В ШАПКЕ ========== */
+        .social-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .social-header div {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .social-header div:hover { transform: scale(1.1); }
 
         /* ========== КАРТОЧКИ ========== */
-        .card-1, .card-2, .card-3, .card-4 {
-            position: absolute;
-            width: 452.48px;
-            height: 302.36px;
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 100px auto 60px;
+            padding: 0 40px;
+            max-width: 1400px;
+        }
+
+        .card {
+            width: 452px;
+            height: 302px;
             border-radius: 90px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            font-family: 'Lakki Reddy', cursive;
+            font-size: 48px;
+            background-size: cover;
         }
-        
-        .card-1 { left: 50%; transform: translateX(-50%) translateX(-260px); top: 355.94px
+        .card:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+        .card-1 { background: linear-gradient(135deg, #3a4b7a, #1a2a4a); color: #FFFA67; text-shadow: 0 4px 4px #FFFA67; }
+        .card-2 { background: linear-gradient(135deg, #4a5b8a, #2a3a5a); color: #FFFA67; }
+        .card-3 { background: linear-gradient(135deg, #5a6b9a, #3a4a6a); color: #28007E; text-shadow: 0 4px 4px #488CCB; }
+        .card-4 { background: linear-gradient(135deg, #6a7baa, #4a5a7a); color: #28007E; }
+
+        .card-1::before { content: "Theatre"; }
+        .card-2::before { content: "Stage collections"; font-size: 38px; }
+        .card-3::before { content: "Graphics"; }
+        .card-4::
 
 
-; background: linear-gradient(135deg, #3a4b7a, #1a2a4a); }
-        .card-2 { left: 50%; transform: translateX(-50%) translateX(260px); top: 353px; background: linear-gradient(135deg, #4a5b8a, #2a3a5a); }
-        .card-3 { left: 50%; transform: translateX(-50%) translateX(-260px); top: 675.92px; background: linear-gradient(135deg, #5a6b9a, #3a4a6a); }
-        .card-4 { left: 50%; transform: translateX(-50%) translateX(260px); top: 672.98px; background: linear-gradient(135deg, #6a7baa, #4a5a7a); }
+before { content: "Accessories"; }
 
-        .card-1:hover { transform: translateX(-50%) translateX(-260px) scale(1.02); }
-        .card-2:hover { transform: translateX(-50%) translateX(260px) scale(1.02); }
-        .card-3:hover { transform: translateX(-50%) translateX(-260px) scale(1.02); }
-        .card-4:hover { transform: translateX(-50%) translateX(260px) scale(1.02); }
-
-        .card-1::before { content: "Theatre"; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #FFFA67; text-shadow: 0 4px 4px #FFFA67; }
-        .card-2::before { content: "Stage collections"; font-family: 'Lakki Reddy', cursive; font-size: 38px; color: #FFFA67; text-align: center; width: 80%; }
-        .card-3::before { content: "Graphics"; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #28007E; text-shadow: 0 4px 4px #488CCB; }
-        .card-4::before { content: "Accessories"; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #28007E; }
-
-        /* ========== НИЖНЯЯ СЕКЦИЯ ========== */
-        .footer-blur-1 {
-            position: absolute;
-            width: 1040px;
-            height: 173px;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 1027px;
-            background: #28007E;
-            filter: blur(10px);
-            z-index: 18;
+        /* ========== ПОДВАЛ (ВСЁ В СТОЛБИК) ========== */
+        .footer {
+            background: rgba(17,20,48,0.9);
+            backdrop-filter: blur(10px);
+            margin-top: 80px;
+            padding: 40px 80px;
+            border-top: 5px solid #616FD0;
         }
-        .footer-blur-2 {
-            position: absolute;
-            width: 1297px;
-            height: 255px;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 1008px;
-            background: rgba(17,20,48,0.8);
-            filter: blur(5px);
-            z-index: 17;
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .footer-line {
-            position: absolute;
-            width: 1242px;
-            height: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 1038px;
-            border: 5px solid #616FD0;
-            z-index: 19;
+
+        .footer-section {
+            text-align: center;
         }
-        .footer-text-left {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) translateX(-280px);
-            top: 1065px;
+
+        .footer-section h3 {
+            font-family: 'Life Savers', serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: #616FD0;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
             font-family: 'Life Savers', serif;
             font-weight: 800;
             font-size: 20px;
-            line-height: 1.5;
             color: #616FD0;
-            z-index: 20;
-            text-align: left;
-        }
-        .footer-text-right {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) translateX(180px);
-            top: 1065px;
-            font-family: 'Life Savers', serif;
-            font-weight: 800;
-            font-size: 20px;
-            line-height: 1.5;
-            color: #616FD0;
-            z-index: 20;
-            text-align: left;
+            line-height: 1.6;
         }
 
-        /* ========== ИКОНКИ СОЦСЕТЕЙ (верх) ========== */
-        .social-instagram {
-            position: absolute;
-            right: 200px;
-            top: 77px;
+        /* ========== ИКОНКИ ТЕМЫ В ПОДВАЛЕ ========== */
+        .theme-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .theme-icons div {
             cursor: pointer;
-            z-index: 25;
             transition: transform 0.2s;
         }
-        .social-mail {
-            position: absolute;
-            right: 145px;
-            top: 75px;
-            cursor: pointer;
-            z-index: 25;
-            transition: transform 0.2s;
-        }
-        .social-youtube {
-            position: absolute;
-            right: 90px;
-            top: 77px;
-            cursor: pointer;
-            z-index: 25;
-            transition: transform 0.2s;
-        }
-        .social-instagram:hover, .social-mail:hover, .social-youtube:hover { transform: scale(1.1); }
+        .theme-icons div:hover { transform: scale(1.1); }
 
-        /* ========== ИКОНКИ В ФУТЕРЕ ========== */
-
-
-.icon-sun {
-            position: absolute;
-            right: 250px;
-            top: 1070px;
-            cursor: pointer;
-            z-index: 25;
-        }
-        .icon-moon {
-            position: absolute;
-            right: 180px;
-            top: 1070px;
-            cursor: pointer;
-            z-index: 25;
-        }
-        .icon-mail-footer {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) translateX(-500px);
-            top: 1096px;
-            cursor: pointer;
-            z-index: 25;
+        /* ========== АДАПТИВНОСТЬ ========== */
+        max-width: 1400px {
+            .header { padding: 30px 40px 0 40px; flex-direction: column; text-align: center; gap: 20px; }
+            .logo { white-space: normal; font-size: 70px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .nav-links a { font-size: 28px; padding: 5px 20px; }
+            .social-header { justify-content: center; }
+            .card { width: 380px; height: 260px; border-radius: 70px; font-size: 40px; }
+            .card-2::before { font-size: 32px; }
+            .footer { padding: 30px 20px; }
+            .footer-section h3 { font-size: 24px; }
+            .footer-section p { font-size: 18px; }
         }
 
-        /* ========== АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ (до 1200px) ========== */
-        max-width: 1200px {
-            .logo { font-size: 60px; white-space: normal; text-align: center; width: 100%; }
-            
-            .nav-home, .nav-portfolio, .nav-about, .nav-contacts {
-                position: relative;
-                left: auto;
-                top: auto;
-                transform: none;
-                margin: 10px auto;
-                width: 180px;
-                height: 55px;
-            }
-            .nav-home:hover, .nav-portfolio:hover, .nav-about:hover, .nav-contacts:hover {
-                transform: scale(1.02);
-            }
-            
-            .nav-blur { display: none; }
-            
-            .card-1, .card-2, .card-3, .card-4 {
-                position: relative;
-                left: auto;
-                top: auto;
-                transform: none;
-                margin: 20px auto;
-                width: 90%;
-                max-width: 400px;
-                height: 250px;
-            }
-            .card-1::before, .card-2::before, .card-3::before, .card-4::before {
-                font-size: 32px;
-            }
+        max-width: 900px {
+            .cards-grid { gap: 20px; padding: 0 20px; margin-top: 60px; }
+            .card { width: 100%; max-width: 380px; height: 240px; border-radius: 60px; font-size: 36px; }
             .card-2::before { font-size: 28px; }
-            
-            .footer-blur-1, .footer-blur-2, .footer-line { display: none; }
-            
-            .footer-text-left, .footer-text-right {
-                position: relative;
-                left: auto;
-                top: auto;
-                transform: none;
-                margin: 10px auto;
-                width: 90%;
-                text-align: center;
-            }
-            
-            .social-instagram, .social-mail, .social-youtube {
-                position: fixed;
-                right: 15px;
-                top: auto;
-                bottom: 20px;
-                left: auto;
-                z-index: 100;
-            }
-            .social-youtube { bottom: 90px; right: 15px; }
-            .social-instagram { bottom: 160px; right: 15px; }
-            .social-mail { bottom: 20px; right: 15px; }
-            
-            .icon-sun, .icon-moon, .icon-mail-footer { display: none; }
-            
-            .portfolio-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-bottom: 80px;
-            }
+            .footer-section h3 { font-size: 22px; }
+            .footer-section p { font-size: 16px; }
         }
 
-        /* ========== АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ (до 768px) ========== */
-        max-width: 768px {
-            .logo { font-size: 48px; top: 20px; position: relative; transform: none; left: auto; }
-            
-            .nav-home, .nav-portfolio, .nav-about, .nav-contacts {
-                width: 140px;
-                height: 45px;
-            }
-            .nav-home a, .nav-portfolio a, .nav-about a, .nav-contacts a {
-                font-size: 22px;
-            }
-            
-            .card-1, .card-2, .card-3, .card-4 {
-                height: 200px;
-                border-radius: 50px;
-            }
-            .card-1::before, .card-3::before, .card-4::before { font-size: 28px; }
+        max-width: 600px {
+            .logo { font-size: 48px; }
+            .nav-links a { font-size: 22px; padding: 5px 15px; }
+            .social-header svg { width: 28px; height: 28px; }
+            .card { height: 200px; border-radius: 50px; font-size: 30px; }
             .card-2::before { font-size: 24px; }
-            
-            .footer-text-left, .footer-text-right {
-                font-size: 14px;
-                width: 95%;
-            }
-            
-            .social-instagram svg, .social-mail svg, .social-youtube svg {
-                width: 28px;
-                height: 28px;
-            }
-
-
-.social-youtube { bottom: 70px; }
-            .social-instagram { bottom: 130px; }
-            .social-mail { bottom: 20px; }
+            .footer-section h3 { font-size: 20px; }
+            .footer-section p { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 <div class="portfolio-container">
-    <!-- ЛОГО -->
-    <div class="logo">LOGO</div>
+    <!-- ШАПКА: ЛОГО слева, СОЦСЕТИ справа -->
+    <div class="header">
+        <div class="logo">LOGO</div>
+        <div class="social-header">
+            <div onclick="window.open('https://instagram.com', '_blank')">
+                <svg width="35" height="36" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                    <circle cx="12" cy="12" r="4" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="#FFFA67"/>
+                </svg>
+            </div>
+            <div onclick="window.location.href='mailto:maria@example.com'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                    <path d="M22 7L12 13L2 7" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                </svg>
+Instagram
+Instagram
+www.instagram.com
 
-    <!-- ИКОНКИ СОЦСЕТЕЙ ВВЕРХУ (на десктопе) И ВНИЗУ (на телефоне) -->
-    <div class="social-instagram" onclick="window.open('https://instagram.com', '_blank')">
-        <svg width="35" height="36" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="2" width="20" height="20" rx="5" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <circle cx="12" cy="12" r="4" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <circle cx="17.5" cy="6.5" r="1.5" fill="#FFFA67"/>
-        </svg>
-    </div>
-    <div class="social-mail" onclick="window.location.href='mailto:maria@example.com'">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <path d="M22 7L12 13L2 7" stroke="#FFFA67" stroke-width="3" fill="none"/>
-        </svg>
-    </div>
-    <div class="social-youtube" onclick="window.open('https://youtube.com', '_blank')">
-        <svg width="42" height="40" viewBox="0 0 24 24" fill="none">
-            <path d="M22.54 6.42C22.33 5.62 21.75 5.05 20.92 4.84C19.14 4.5 12 4.5 12 4.5C12 4.5 4.86 4.5 3.08 4.84C2.25 5.05 1.67 5.62 1.46 6.42C1.12 8.2 1.12 12 1.12 12C1.12 12 1.12 15.8 1.46 17.58C1.67 18.38 2.25 18.95 3.08 19.16C4.86 19.5 12 19.5 12 19.5C12 19.5 19.14 19.5 20.92 19.16C21.75 18.95 22.33 18.38 22.54 17.58C22.88 15.8 22.88 12 22.88 12C22.88 12 22.88 8.2 22.54 6.42Z" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <polygon points="9.75 8.5 9.75 15.5 15.5 12 9.75 8.5" fill="#FFFA67"/>
-        </svg>
+
+</div>
+            <div onclick="window.open('https://youtube.com', '_blank')">
+                <svg width="42" height="40" viewBox="0 0 24 24" fill="none">
+                    <path d="M22.54 6.42C22.33 5.62 21.75 5.05 20.92 4.84C19.14 4.5 12 4.5 12 4.5C12 4.5 4.86 4.5 3.08 4.84C2.25 5.05 1.67 5.62 1.46 6.42C1.12 8.2 1.12 12 1.12 12C1.12 12 1.12 15.8 1.46 17.58C1.67 18.38 2.25 18.95 3.08 19.16C4.86 19.5 12 19.5 12 19.5C12 19.5 19.14 19.5 20.92 19.16C21.75 18.95 22.33 18.38 22.54 17.58C22.88 15.8 22.88 12 22.88 12C22.88 12 22.88 8.2 22.54 6.42Z" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                    <polygon points="9.75 8.5 9.75 15.5 15.5 12 9.75 8.5" fill="#FFFA67"/>
+                </svg>
+            </div>
+        </div>
     </div>
 
     <!-- НАВИГАЦИЯ -->
-    <div class="nav-blur"></div>
-    <div class="nav-home"><a href="#">Home</a></div>
-    <div class="nav-portfolio"><a href="#">Portfolio</a></div>
-    <div class="nav-about"><a href="#">About me</a></div>
-    <div class="nav-contacts"><a href="#">Contacts</a></div>
-
-    <!-- КАРТОЧКИ РАБОТ -->
-    <div class="card-1" onclick="alert('Theatre — скоро подробнее')"></div>
-    <div class="card-2" onclick="alert('Stage collections — скоро подробнее')"></div>
-    <div class="card-3" onclick="alert('Graphics — скоро подробнее')"></div>
-    <div class="card-4" onclick="alert('Accessories — скоро подробнее')"></div>
-
-    <!-- НИЖНЯЯ СЕКЦИЯ -->
-    <div class="footer-blur-1"></div>
-    <div class="footer-blur-2"></div>
-    <div class="footer-line"></div>
-
-    <div class="footer-text-left">
-        Types of work:
-
-        Fashion illustration
-
-        Digital graphics
-
-        Set design
-    </div>
-    <div class="footer-text-right">
-        Use programs:
-
-        CorelDraw
-
-        Krita
-
-        ClipStudio
-
-        Clo3D
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About me</a>
+        <a href="#">Contacts</a>
     </div>
 
-    <!-- ИКОНКИ В ФУТЕРЕ (десктоп) -->
-    <div class="icon-sun" onclick="alert('Светлая тема в разработке')">
-        <svg width="44" height="43" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="5" stroke="#616FD0" stroke-width="3" fill="none"/>
-            <path d="M12 2V4M12 20V22M4 12H2M6 6L4 4M18 18L20 20M22 12H20M18 6L20 4M6 18L4 20" stroke="#616FD0" stroke-width="3"/>
-        </svg>
+    <!-- КАРТОЧКИ -->
+    <div class="cards-grid">
+        <div class="card card-1" onclick="alert('Theatre — скоро подробнее')"></div>
+        <div class="card card-2" onclick="alert('Stage collections — скоро подробнее')"></div>
+        <div class="card card-3" onclick="alert('Graphics — скоро подробнее')"></div>
+        <div class="card card-4" onclick="alert('Accessories — скоро подробнее')"></div>
     </div>
-    <div class="icon-moon" onclick="alert('Тёмная тема уже активна')">
-        <svg width="45" height="43" viewBox="0 0 24 24" fill="none">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="#616FD0" stroke-width="3" fill="none"/>
-        </svg>
+
+    <!-- ПОДВАЛ (ВСЁ В СТОЛБИК) -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Types of work</h3>
+                <p>Fashion illustration
+Digital graphics
+Set design</p>
+            </div>
+            <div class="footer-section">
+                <h3>Use programs</h3>
+                <p>CorelDraw
+Krita
+ClipStudio
+Clo3D</p>
+            </div>
+            <div class="theme-icons">
+                <div onclick="alert('Светлая тема в разработке')">
+                    <svg width="44" height="43" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="5" stroke="#616FD0" stroke-width="3" fill="none"/>
+                        <path d="M12 2V4M12 20V22M4 12H2M6 6L4 4M18 18L20 20M22 12H20M18 6L20 4M6 18L4 20" stroke="#616FD0" stroke-width="3"/>
+                    </svg>
+                </div>
+                <div onclick="alert('Тёмная тема уже активна')">
+                    <svg width="45" height="43" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="#616FD0" stroke-width="3" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="icon-mail-footer" onclick="window.location.href='mailto:maria@example.com'">
-        <svg width="34" height="28" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#616FD0" stroke-width="4" fill="none"/>
-            <path d="M22 7L12 13L2 7" stroke="#616FD0" stroke-width="4" fill="none"/>
-        </svg>
-
-
-</div>
 </div>
 
 <script>
-    // Плавная прокрутка
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+            const targetId = this.textContent.toLowerCase().replace(' ', '');
+            alert(`Страница "${this.textContent}" в разработке`);
         });
     });
 </script>
