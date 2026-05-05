@@ -22,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+        /* ========== ОСНОВНОЙ КОНТЕЙНЕР С ЦЕНТРИРОВАНИЕМ ========== */
         .portfolio-container {
             position: relative;
             width: 100%;
@@ -30,30 +30,36 @@
             margin: 0 auto;
             background: #24365F;
             min-height: 100vh;
-            overflow-x: hidden;
+        }
+
+        /* ========== ЦЕНТРИРУЮЩИЙ КОНТЕЙНЕР ДЛЯ ВСЕГО КОНТЕНТА ========== */
+        .content-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
         }
 
         /* ========== LOGO ========== */
         .logo {
             position: absolute;
-            left: 470px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 44px;
             width: 218px;
-            height: 61px;
             font-family: 'Love Ya Like A Sister', cursive;
             font-size: 96px;
-            line-height: 120px;
             text-align: center;
             color: #FFFA67;
             z-index: 20;
+            white-space: nowrap;
         }
 
-        /* ========== НАВИГАЦИЯ (КНОПКИ) ========== */
-        .nav-home {
+        /* ========== НАВИГАЦИЯ (КНОПКИ) - ЦЕНТРИРОВАНА ========== */
+        .nav-home, .nav-portfolio, .nav-about, .nav-contacts {
             position: absolute;
             width: 220px;
             height: 70px;
-            left: 431px;
             top: 268px;
             background: #616FD0;
             border-radius: 30px;
@@ -61,89 +67,23 @@
             transition: transform 0.2s, background 0.2s;
             z-index: 10;
         }
-        .nav-home:hover { background: #7a88e8; transform: scale(1.02); }
-        .nav-home a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Lakki Reddy', cursive;
-            font-size: 36px;
-            color: #FFFA67;
-            text-decoration: none;
-        }
+        
+        /* Центрируем навигацию */
+        .nav-home { left: 50%; transform: translateX(-50%) translateX(-340px); background: #616FD0; }
+        .nav-portfolio { left: 50%; transform: translateX(-50%) translateX(-100px); background: #24318E; }
+        .nav-about { left: 50%; transform: translateX(-50%) translateX(140px); background: #616FD0; }
+        .nav-contacts { left: 50%; transform: translateX(-50%) translateX(380px); background: #616FD0; }
 
-        .nav-portfolio {
-            position: absolute;
-            width: 220px;
-            height: 70px;
-            left: 671px;
-            top: 268px;
-            background: #24318E;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            z-index: 10;
+        .nav-home:hover, .nav-portfolio:hover, .nav-about:hover, .nav-contacts:hover {
+            transform: translateX(-50%) scale(1.02);
+            background: #7a88e8;
         }
-        .nav-portfolio:hover { background: #3a4bb0; transform: scale(1.02); }
-        .nav-portfolio a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Lakki Reddy', cursive;
-            font-size: 36px;
-            color: #FFFA67;
-            text-decoration: none;
-        }
+        .nav-home:hover { transform: translateX(-50%) translateX(-340px) scale(1.02); }
+        .nav-portfolio:hover { transform: translateX(-50%) translateX(-100px) scale(1.02); }
+        .nav-about:hover { transform: translateX(-50%) translateX(140px) scale(1.02); }
+        .nav-contacts:hover { transform: translateX(-50%) translateX(380px) scale(1.02); }
 
-        .nav-about {
-            position: absolute;
-            width: 220px;
-            height: 70px;
-            left: 911px;
-            top: 268px;
-            background: #616FD0;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            z-index: 10;
-        }
-        .nav-about:hover { background: #7a88e8; transform: scale(1.02); }
-        .nav-about a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Lakki Reddy', cursive;
-            font-size: 36px;
-            color: #FFFA67;
-            text-decoration: none;
-        }
-
-        .nav-contacts {
-            position: absolute;
-            width: 220px;
-            height: 70px;
-            left: 1151px;
-            top: 268p
-
-
-x;
-            background: #616FD0;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            z-index: 10;
-        }
-        .nav-contacts:hover { background: #7a88e8; transform: scale(1.02); }
-        .nav-contacts a {
+        .nav-home a, .nav-portfolio a, .nav-about a, .nav-contacts a {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -161,7 +101,8 @@ x;
             position: absolute;
             width: 1100px;
             height: 84px;
-            left: 410px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 163px;
             background: rgba(0,0,0,0.3);
             filter: blur(3.5px);
@@ -169,16 +110,14 @@ x;
             z-index: 5;
         }
 
-        /* ========== КАРТОЧКИ РАБОТ (4 штуки) ========== */
-        .card-1 {
+        /* ========== КАРТОЧКИ РАБОТ (ЦЕНТРИРОВАНЫ) ========== */
+
+
+.card-1, .card-2, .card-3, .card-4 {
             position: absolute;
             width: 452.48px;
             height: 302.36px;
-            left: 497px;
-            top: 355.94px;
-            background: linear-gradient(135deg, #3a4b7a, #1a2a4a);
             border-radius: 90px;
-            transform: matrix(1, -0.01, 0.01, 1, 0, 0);
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             z-index: 15;
@@ -186,82 +125,32 @@ x;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255,250,103,0.5);
-            font-size: 24px;
             text-align: center;
         }
-        .card-1:hover { transform: matrix(1, -0.01, 0.01, 1, 0, 0) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .card-1::before { content: "Theathre"; position: absolute; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #FFFA67; text-shadow: 0 4px 4px #FFFA67; z-index: 2; }
+        
+        /* Центрируем карточки */
+        .card-1 { left: 50%; transform: translateX(-50%) translateX(-260px); top: 355.94px; background: linear-gradient(135deg, #3a4b7a, #1a2a4a); }
+        .card-2 { left: 50%; transform: translateX(-50%) translateX(260px); top: 353px; background: linear-gradient(135deg, #4a5b8a, #2a3a5a); }
+        .card-3 { left: 50%; transform: translateX(-50%) translateX(-260px); top: 675.92px; background: linear-gradient(135deg, #5a6b9a, #3a4a6a); }
+        .card-4 { left: 50%; transform: translateX(-50%) translateX(260px); top: 672.98px; background: linear-gradient(135deg, #6a7baa, #4a5a7a); }
 
-        .card-2 {
-            position: absolute;
-            width: 452.48px;
-            height: 302.36px;
-            left: 965.83px;
-            top: 353px;
-            background: linear-gradient(135deg, #4a5b8a, #2a3a5a);
-            border-radius: 90px;
-            transform: matrix(1, -0.01, 0.01, 1, 0, 0);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 15;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .card-2:hover { transform: matrix(1, -0.01, 0.01, 1, 0, 0) scale(1.02); }
-        .card-2::before { content: "Stage collections"; position: absolute; font-family: 'Lakki Reddy', cursive; font-size: 38px; text-align: center; color: #FFFA67; z-index: 2; width: 80%; }
+        .card-1:hover { transform: translateX(-50%) translateX(-260px) scale(1.02); }
+        .card-2:hover { transform: translateX(-50%) translateX(260px) scale(1.02); }
+        .card-3:hover { transform: translateX(-50%) translateX(-260px) scale(1.02); }
+        .card-4:hover { transform: translateX(-50%) translateX(260px) scale(1.02); }
 
-        .card-3 {
-            position: absolute;
-            width: 452.48px;
-            height: 302.36px;
-            left: 498.93px;
-            top: 675.92px;
-            background: linear-gradient(135deg, #5a6b9a, #3a4a6a);
-            border-radius: 90px;
-            transform: matrix(1, -0.01, 0.01, 1, 0, 0);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 15;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .card-3:hover { transform: matrix(1, -0.01, 0.01, 1, 0, 0) scale(1.02); }
-        .card-3::before { content: "Graphics"; position: absolute; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #28007E; text-shadow: 0 4px 4px #488CCB; z-index: 2; }
+        .card-1::before { content: "Theathre"; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #FFFA67; text-shadow: 0 4px 4px #FFFA67; }
+        .card-2::before { content: "Stage collections"; font-family: 'Lakki Reddy', cursive; font-size: 38px; color: #FFFA67; text-align: center; width: 80%; }
+        .card-3::before { content: "Graphics"; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #28007E; text-shadow: 0 4px 4px #488CCB; }
+        .card-4::before { content: "Accessories"; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #28007E; }
 
-        .card-4 {
-            position: absolute;
-            width: 452.48px;
-            height: 302.36px;
-            left: 967.76px;
-            top: 672.98px;
-            background: linear-gradient(135deg, #6a7baa, #4a5a7a);
-            border-radius: 90px;
-            transform: matrix(1, -0.01, 0.01,
-
-
-1, 0, 0);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 15;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .card-4:hover { transform: matrix(1, -0.01, 0.01, 1, 0, 0) scale(1.02); }
-        .card-4::before { content: "Accessories"; position: absolute; font-family: 'Lakki Reddy', cursive; font-size: 48px; color: #28007E; z-index: 2; }
-
-        /* ========== НИЖНЯЯ СЕКЦИЯ С ИНФОРМАЦИЕЙ ========== */
+        /* ========== НИЖНЯЯ СЕКЦИЯ ========== */
         .footer-blur-1 {
             position: absolute;
             width: 1040px;
             height: 173px;
-            left: 425px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 1027px;
             background: #28007E;
             filter: blur(10px);
@@ -271,7 +160,8 @@ x;
             position: absolute;
             width: 1297px;
             height: 255px;
-            left: 321px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 1008px;
             background: rgba(17,20,48,0.8);
             filter: blur(5px);
@@ -281,14 +171,16 @@ x;
             position: absolute;
             width: 1242px;
             height: 0;
-            left: 343px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 1038px;
             border: 5px solid #616FD0;
             z-index: 19;
         }
         .footer-text-left {
             position: absolute;
-            left: 600px;
+            left: 50%;
+            transform: translateX(-50%) translateX(-280px);
             top: 1065px;
             font-family: 'Life Savers', serif;
             font-weight: 800;
@@ -296,10 +188,12 @@ x;
             line-height: 1.3;
             color: #616FD0;
             z-index: 20;
+            text-align: left;
         }
         .footer-text-right {
             position: absolute;
-            left: 1000px;
+            left: 50%;
+            transform: translateX(-50%) translateX(180px);
             top: 1065px;
             font-family: 'Life Savers', serif;
             font-weight: 800;
@@ -307,67 +201,57 @@ x;
             line-height: 1.3;
             color: #616FD0;
             z-index: 20;
+            text-align: left;
         }
 
         /* ========== ИКОНКИ СОЦСЕТЕЙ (верх) ========== */
         .social-instagram {
             position: absolute;
-            width: 35px;
-            height: 36px;
-            left: 1354px;
+            right: 200px;
             top: 77px;
             cursor: pointer;
             z-index: 25;
             transition: transform 0.2s;
-        }
-        .social-instagram:hover { transform: scale(1.1); }
+
+
+}
         .social-mail {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            left: 1397px;
+            right: 145px;
             top: 75px;
             cursor: pointer;
             z-index: 25;
             transition: transform 0.2s;
         }
-        .social-mail:hover { transform: scale(1.1); }
         .social-youtube {
             position: absolute;
-            width: 42px;
-            height: 40px;
-            left: 1445px;
+            right: 90px;
             top: 77px;
             cursor: pointer;
             z-index: 25;
             transition: transform 0.2s;
         }
-        .social-youtube:hover { transform: scale(1.1); }
+        .social-instagram:hover, .social-mail:hover, .social-youtube:hover { transform: scale(1.1); }
 
-        /* ========== ДОП. ИКОНКИ В ФУТЕРЕ (Солнце, Луна, Почта) ========== */
+        /* ========== ДОП. ИКОНКИ В ФУТЕРЕ ========== */
         .icon-sun {
             position: absolute;
-            width: 44px;
-            height: 43px;
-            left: 1412px;
+            right: 250px;
             top: 1070px;
             cursor: pointer;
             z-index: 25;
         }
         .icon-moon {
             position: absolute;
-            width: 45px;
-            height: 43px;
-            left: 1463px;
+            right: 180px;
             top: 1070px;
             cursor: pointer;
             z-index: 25;
         }
         .icon-mail-footer {
             position: absolute;
-            width: 34px;
-            height: 28px;
-            left: 520px;
+            left: 50%;
+            transform: translateX(-50%) translateX(-500px);
             top: 1096px;
             cursor: pointer;
             z-index: 25;
@@ -375,31 +259,39 @@ x;
 
         /* ========== АДАПТИВНОСТЬ ========== */
         max-width: 1400px {
-            .logo { position: relative; left: auto; top: auto; text-align: center; padding-top: 20px; font-size: 60px; width: auto; }
-            .nav-home, .nav-portfolio, .nav-about, .nav-contacts { position: rela
-
-
-tive; left: auto; top: auto; margin: 10px auto; width: 180px; height: 55px; }
-            .nav-home a, .nav-portfolio a, .nav-about a, .nav-contacts a { font-size: 28px; }
+            .logo { position: relative; transform: none; left: auto; top: auto; padding-top: 20px; font-size: 60px; white-space: normal; }
+            
+            .nav-home, .nav-portfolio, .nav-about, .nav-contacts { 
+                position: relative; left: auto; top: auto; 
+                transform: none; margin: 10px auto; width: 180px; height: 55px;
+            }
+            .nav-home:hover, .nav-portfolio:hover, .nav-about:hover, .nav-contacts:hover { transform: scale(1.02); }
             .nav-blur { display: none; }
             
             .card-1, .card-2, .card-3, .card-4 { 
                 position: relative; left: auto; top: auto; 
                 transform: none; margin: 20px auto; width: 90%; max-width: 400px; height: 250px;
             }
+            .card-1:hover, .card-2:hover, .card-3:hover, .card-4:hover { transform: scale(1.02); }
             .card-1::before, .card-2::before, .card-3::before, .card-4::before { font-size: 32px; text-align: center; }
             
             .footer-blur-1, .footer-blur-2, .footer-line { display: none; }
-            .footer-text-left, .footer-text-right { position: relative; left: auto; top: auto; margin: 20px auto; width: 80%; text-align: center; }
+            .footer-text-left, .footer-text-right { 
+                position: relative; left: auto; top: auto; 
+                transform: none; margin: 20px auto; width: 80%; text-align: center;
+            }
             
-            .social-instagram, .social-mail, .social-youtube { position: fixed; right: 10px; top: auto; bottom: 10px; left: auto; }
-            .social-instagram { bottom: 70px; }
-            .social-mail { bottom: 20px; }
-            .social-youtube { bottom: 120px; }
+            .social-instagram, .social-mail, .social-youtube { 
+                position: fixed; right: 10px; top: auto; bottom: 10px; left: auto;
+            }
+            .social-instagram { bottom: 70px; right: 10px; }
+            .social-mail { bottom: 20px; right: 10px; }
+            .social-youtube { bottom: 120px; right: 10px; }
             
             .icon-sun, .icon-moon, .icon-mail-footer { display: none; }
             
             .portfolio-container { display: flex; flex-direction: column; align-items: center; padding: 20px; }
+            .content-wrapper { display: flex; flex-direction: column; align-items: center; }
         }
 
         max-width: 768px {
@@ -412,107 +304,114 @@ tive; left: auto; top: auto; margin: 10px auto; width: 180px; height: 55px; }
 </head>
 <body>
 <div class="portfolio-container">
-    <!-- ЛОГО -->
-    <div class="logo">LOGO</div>
+    <div class="content-wrapper">
+        <!-- ЛОГО -->
+        <div class="logo">LOGO</div>
 
-    <!-- ИКОНКИ СОЦСЕТЕЙ ВВЕРХУ -->
-    <div class="social-instagram" onclick="window.open('https://instagram.com', '_blank')">
-        <svg width="35" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <circle cx="12" cy="12" r="4" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <circle cx="17.5" cy="6.5" r="1.5" fill="#FFFA67"/>
-        </svg>
-    </div>
-    <div class="social-mail" onclick="window.location.href='mailto:maria@example.com'">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <path d="M22 7L12 13L2 7" stroke="#FFFA67" stroke-width="3" fill="none"/>
-        </svg>
-    </div>
-    <div class="social-youtube" onclick="window.open('https://youtube.com', '_blank')">
-        <svg width="42" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.54 6.42C22.33 5.62 21.75 5.05 20.92 4.84C19.14 4.5 12 4.5 12 4.5C12 4.5 4.86 4.5 3.08 4.84C2.25 5.05 1.67 5.62 1.46 6.42C1.12 8.2 1.12 12 1.12 12C1.12 12 1.12 15.8 1.46 17.58C1.67 18.38 2.25 18.95 3.08 19.16C4.86 19.5 12 19.5 12 19.5C12 19.5 19.14 19.5 20.92 19.16C21.75 18.95 22.33 18.38 22.54 17.58C22.88 15.8 22.88 12 22.88 12C22.88 12 22.88 8.2 22.54 6.42Z" stroke="#FFFA67" stroke-width="3" fill="none"/>
-            <polygon points="9.75 8.5 9.75 15.5 15.5 12 9.75 8.5" fill="#FFFA67"/>
-        </svg>
-    </div>
-
-    <!-- НАВИГАЦИЯ -->
-    <div class="nav-blur"></div>
-    <div class="nav-home"><a href="#">Home</a></div>
-    <div class="nav-portfolio"><a href="#">Portfolio</a></div>
-    <div class="nav-about"><a href="#">About me</a></div>
-    <div class="nav-contacts"><a href="#">Contacts</a></div>
-
-    <!-- КАРТОЧКИ РАБОТ (КЛИКАБЕЛЬНЫ) -->
-    <div class="card-1" onclick="alert('Theathre — скоро подробнее')"></div>
-    <div class="card-2" onclick="alert('Stage collections — скоро подробнее')"></div>
-    <div class="card-3" onclick="alert('Graphics — скоро подробне
-SVG namespace
-www.w3.org
+        <!-- ИКОНКИ СОЦСЕТЕЙ ВВЕРХУ -->
+        <div class="social-instagram" onclick="window.open('https://instagram.com', '_blank')">
+            <svg width="35" height="36" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="#FFFA67" stroke-width="3" fi
+Instagram
+Instagram
+www.instagram.com
 
 
-е')"></div>
-    <div class="card-4" onclick="alert('Accessories — скоро подробнее')"></div>
+ll="none"/>
+                <circle cx="12" cy="12" r="4" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#FFFA67"/>
+            </svg>
+        </div>
+        <div class="social-mail" onclick="window.location.href='mailto:maria@example.com'">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                <path d="M22 7L12 13L2 7" stroke="#FFFA67" stroke-width="3" fill="none"/>
+            </svg>
+        </div>
+        <div class="social-youtube" onclick="window.open('https://youtube.com', '_blank')">
+            <svg width="42" height="40" viewBox="0 0 24 24" fill="none">
+                <path d="M22.54 6.42C22.33 5.62 21.75 5.05 20.92 4.84C19.14 4.5 12 4.5 12 4.5C12 4.5 4.86 4.5 3.08 4.84C2.25 5.05 1.67 5.62 1.46 6.42C1.12 8.2 1.12 12 1.12 12C1.12 12 1.12 15.8 1.46 17.58C1.67 18.38 2.25 18.95 3.08 19.16C4.86 19.5 12 19.5 12 19.5C12 19.5 19.14 19.5 20.92 19.16C21.75 18.95 22.33 18.38 22.54 17.58C22.88 15.8 22.88 12 22.88 12C22.88 12 22.88 8.2 22.54 6.42Z" stroke="#FFFA67" stroke-width="3" fill="none"/>
+                <polygon points="9.75 8.5 9.75 15.5 15.5 12 9.75 8.5" fill="#FFFA67"/>
+            </svg>
+        </div>
 
-    <!-- НИЖНЯЯ СЕКЦИЯ -->
-    <div class="footer-blur-1"></div>
-    <div class="footer-blur-2"></div>
-    <div class="footer-line"></div>
+        <!-- НАВИГАЦИЯ -->
+        <div class="nav-blur"></div>
+        <div class="nav-home"><a href="#">Home</a></div>
+        <div class="nav-portfolio"><a href="#">Portfolio</a></div>
+        <div class="nav-about"><a href="#">About me</a></div>
+        <div class="nav-contacts"><a href="#">Contacts</a></div>
 
-    <div class="footer-text-left">
-        Types of work:
+        <!-- КАРТОЧКИ РАБОТ -->
+        <div class="card-1" onclick="alert('Theathre — скоро подробнее')"></div>
+        <div class="card-2" onclick="alert('Stage collections — скоро подробнее')"></div>
+        <div class="card-3" onclick="alert('Graphics — скоро подробнее')"></div>
+        <div class="card-4" onclick="alert('Accessories — скоро подробнее')"></div>
 
-        Fashion illustration
+        <!-- НИЖНЯЯ СЕКЦИЯ -->
+        <div class="footer-blur-1"></div>
+        <div class="footer-blur-2"></div>
+        <div class="footer-line"></div>
 
-        Digital graphic
+        <div class="footer-text-left">
+            Types of work:
 
-        Suit tailoring
-    </div>
-    <div class="footer-text-right">
-        Use programs:
+            Fashion illustration
 
-        CorelDraw
+            Digital graphic
 
-        Krita
+            Suit tailoring
+        </div>
+        <div class="footer-text-right">
+            Use programs:
 
-        ClipStudio
+            CorelDraw
 
-        Clo3D
-    </div>
+            Krita
 
-    <!-- ИКОНКИ В ФУТЕРЕ -->
-    <div class="icon-sun" onclick="alert('Светлая тема в разработке')">
-        <svg width="44" height="43" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="5" stroke="#616FD0" stroke-width="3" fill="none"/>
-            <path d="M12 2V4M12 20V22M4 12H2M6 6L4 4M18 18L20 20M22 12H20M18 6L20 4M6 18L4 20" stroke="#616FD0" stroke-width="3"/>
-        </svg>
-    </div>
-    <div class="icon-moon" onclick="alert('Тёмная тема уже активна')">
-        <svg width="45" height="43" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="#616FD0" stroke-width="3" fill="none"/>
-        </svg>
-    </div>
-    <div class="icon-mail-footer" onclick="window.location.href='mailto:maria@example.com'">
-        <svg width="34" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="4" width="20" height="16" rx="2" stroke="#616FD0" stroke-width="4" fill="none"/>
-            <path d="M22 7L12 13L2 7" stroke="#616FD0" stroke-width="4" fill="none"/>
-        </svg>
+            ClipStudio
+
+            Clo3D
+        </div>
+
+        <!-- ИКОНКИ В ФУТЕРЕ -->
+        <div class="icon-sun" onclick="alert('Светлая тема в разработке')">
+            <svg width="44" height="43" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="5" stroke="#616FD0" stroke-width="3" fill="none"/>
+                <path d="M12 2V4M12 20V22M4 12H2M6 6L4 4M18 18L20 20M22 12H20M18 6L20 4M6 18L4 20" stroke="#616FD0" stroke-width="3"/>
+            </svg>
+        </div>
+        <div class="icon-moon" onclick="alert('Тёмная тема уже активна')">
+            <svg width="45" height="43" viewBox="0 0 24 24" fill="none">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="#616FD0" stroke-width="3" fill="none"/>
+            </svg>
+        </div>
+        <div class="icon-mail-footer" onclick="window.location.href='mailto:maria@example.com'">
+            <svg width="34" height="28" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#616FD0" stroke-width="4" fill="none"/>
+                <path d="M22 7L12 13L2 7" stroke="#616FD0" stroke-width="4" fill="none"/>
+            </svg>
+        </div>
     </div>
 </div>
 
 <script>
-    // Плавная прокрутка для якорных ссылок
+    // Плавная прокрутка
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
+                targ
+YouTube
+YouTube
+www.youtube.com
+
+
+et.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-    
-    console.log('Сайт портфолио загружен!');
 </script>
 </body>
 </html>
